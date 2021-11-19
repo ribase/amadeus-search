@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+            <title>App</title>
+        </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <form method="post">
+                        <input type="text" name="[currencyCode]" class="form-control" placeholder="Currency">
+                        <input type="hidden" name="[originDestinations][][id]" value="1">
+                        <input type="text" name="[originDestinations][][originLocationCode]" class="form-control" placeholder="Origin code">
+                        <input type="text" name="[originDestinations][][destinationLocationCode]" class="form-control" placeholder="Destination code">
+                        <input type="date" name="[originDestinations][][departureDateTimeRange][date]" class="form-control" placeholder="Date">
+                        <input type="time" name="[originDestinations][][departureDateTimeRange][time]" class="form-control" placeholder="Time" step="1" >
+                        <input type="submit" value="Submit" class="btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{#each result.data}}
+        <div>{{this.type}}</div>
+        <div>{{this.id}}</div>
+        <div>{{this.source}}</div>
+        <div>{{this.numberOfBookableSeats}}</div>
+        {{#each this.itineraries}}
+
+        {{/each}}
+    {{/each}}
+  </body>
+</html>
